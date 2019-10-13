@@ -2,8 +2,11 @@
 Exemplo de CRUD com Sapper e NestJS, baseado do exemplo de angular-nest-crud
 
 Estrutura das pastas:
+
 backend contem o servidor em nestjs utilizando o mongodb
+
 angular contem os arquivos client do angular
+
 sapper contem os arquivos client do sapper
 
 Apos clonar o repositorio entre em cada uma das pastas e execute o comando npm install;
