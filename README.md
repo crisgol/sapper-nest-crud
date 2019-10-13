@@ -18,14 +18,14 @@ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD7
 
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
 
-sudo apt update
-sudo apt-get install -y mongodb
-sudo apt install mongodb-org
+sudo apt update<br>
+sudo apt-get install -y mongodb<br>
+sudo apt install mongodb-org <p>
 
->>habilite e inicie o serviço do MongoDB.
-sudo systemctl enable mongodb
-sudo systemctl start mongodb
+>>habilite e inicie o serviço do MongoDB.<br>
+sudo systemctl enable mongodb<br>
+sudo systemctl start mongodb<p>
 
->>verificar status do mongodb
+>>verificar status do mongodb<br>
 sudo systemctl status mongodb
 
