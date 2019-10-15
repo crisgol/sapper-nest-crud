@@ -1,5 +1,6 @@
 <script context="module">
 	export function preload({ params, query }) {
+    console.log(params);
 		return this.fetch(`blog.json`).then(r => r.json()).then(posts => {
 			return { posts };
 		});
@@ -8,6 +9,11 @@
 
 <script>
   import { onMount } from 'svelte';
+  import * as sapper from '@sapper/app';
+  //import { Store } from 'svelte/store.js';
+
+  //import Navbar from '../components/mystore/index.svelte'
+
  // import { basePath } from '../../config';
   //import { ProductService } from '../../services/product.service';
  // import { Product } from '../../interfaces/Product';
@@ -67,9 +73,13 @@
         err => console.log(err)
       )
       */
-      console.log('produto excluido '+id);
+      console.log(`produto excluido ${id}`);
   }
 
+  function editProduct(id){
+    sapper.goto(`/product-form?edit=${id}`);
+   // window.location.href="/product-form?edit="+id;
+  }
 </script>
 
 {#each products as product}
@@ -78,7 +88,8 @@
     <div class="col-md-8">
       <ul>
         <li>
-          id: {product._id}
+          
+         <a rel='prefetch' href='/product-form?edit={product._id}'>id: {product._id}</a>
         </li>
         <li>
           name: {product.name}
@@ -96,10 +107,11 @@
       <button on:click="{() => deleteProduct(product._id)}" class="btn btn-danger">
         Delete
       </button>
-      <button href="/product-form/edit/{product._id}" class="btn btn-secondary">
+      <button  on:click="{() => editProduct(product._id)}"  class="btn btn-secondary">
         Edit
-      </button>
-    
+        
+      </button>  
+      
     </div>
     <div class="col-md-4">
       <!--<img [src]="{product.imageURL}" class="card-img"> -->
